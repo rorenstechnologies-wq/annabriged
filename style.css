@@ -1,0 +1,878 @@
+/* ===============================
+   ANNA BRIGADE PROFESSIONAL UI
+================================ */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins','Noto Sans Devanagari',sans-serif;
+}
+
+
+body{
+
+background:#f4f6f9;
+color:#222;
+
+}
+
+
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+
+
+/* ================= HEADER ================= */
+
+
+header{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+z-index:1000;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:15px 7%;
+
+
+background:rgba(255,255,255,0.95);
+
+backdrop-filter:blur(15px);
+
+
+box-shadow:0 5px 25px rgba(0,0,0,.08);
+
+}
+
+
+
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+
+
+.logo img{
+
+width:65px;
+
+height:65px;
+
+border-radius:50%;
+
+}
+
+
+
+.logo h2{
+
+font-size:26px;
+
+color:#ff6b00;
+
+}
+
+
+.logo p{
+
+font-size:13px;
+
+color:#777;
+
+}
+
+
+
+nav{
+
+display:flex;
+
+gap:30px;
+
+}
+
+
+
+nav a{
+
+text-decoration:none;
+
+font-weight:600;
+
+color:#333;
+
+transition:.3s;
+
+}
+
+
+
+nav a:hover{
+
+color:#ff6b00;
+
+}
+
+
+
+.login{
+
+background:#ff6b00;
+
+padding:12px 30px;
+
+border-radius:30px;
+
+color:white!important;
+
+}
+
+
+
+
+/* ================= HERO ================= */
+/* ================= PREMIUM HERO ================= */
+
+.hero{
+    position:relative;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(10,20,45,.80),
+        rgba(18,35,65,.70),
+        rgba(8,15,35,.82)
+    ),
+    url("images/banner.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    color:#fff;
+}
+
+/* Elegant animated light */
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:-20%;
+
+    background:
+        radial-gradient(circle at 20% 20%,rgba(255,140,0,.18),transparent 30%),
+        radial-gradient(circle at 80% 30%,rgba(255,255,255,.10),transparent 28%),
+        radial-gradient(circle at 60% 80%,rgba(255,193,7,.12),transparent 32%);
+
+    animation:heroLight 14s ease-in-out infinite alternate;
+}
+
+@keyframes heroLight{
+
+    0%{
+        transform:scale(1) rotate(0deg);
+    }
+
+    100%{
+        transform:scale(1.15) rotate(8deg);
+    }
+
+}
+
+/* Content */
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:900px;
+    padding:20px;
+}
+
+.hero h3{
+    color:#FFD54F;
+    font-size:24px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:85px;
+    font-weight:700;
+    line-height:1.1;
+    text-shadow:0 12px 35px rgba(0,0,0,.55);
+}
+
+.hero p{
+    font-size:24px;
+    color:#F5F5F5;
+    margin:30px auto;
+    max-width:700px;
+    line-height:1.8;
+}
+
+/* Buttons */
+
+.btn,
+.btn2{
+
+display:inline-block;
+padding:16px 42px;
+margin:12px;
+border-radius:50px;
+font-weight:600;
+text-decoration:none;
+transition:.35s;
+
+}
+
+.btn{
+
+background:#ff6b00;
+color:#fff;
+box-shadow:0 15px 35px rgba(255,107,0,.35);
+
+}
+
+.btn:hover{
+
+transform:translateY(-5px);
+
+}
+
+.btn2{
+
+border:2px solid rgba(255,255,255,.7);
+color:#fff;
+
+}
+
+.btn2:hover{
+
+background:#fff;
+color:#111;
+
+}
+/* ================= SECTION ================= */
+
+
+
+section{
+
+padding:90px 8%;
+
+}
+
+
+
+.title{
+
+text-align:center;
+
+font-size:42px;
+
+margin-bottom:50px;
+
+color:#ff6b00;
+
+}
+
+/* Founder */
+
+#founder{
+
+padding:90px 8%;
+background:#fdfdfd;
+
+}
+
+.founder-container{
+
+display:flex;
+align-items:center;
+gap:60px;
+flex-wrap:wrap;
+
+}
+
+.founder-image{
+
+flex:1;
+text-align:center;
+
+}
+
+.founder-image img{
+
+width:320px;
+height:400px;
+object-fit:cover;
+
+border-radius:20px;
+
+box-shadow:0 20px 45px rgba(0,0,0,.15);
+
+border:8px solid #fff;
+
+}
+
+.founder-image h3{
+
+margin-top:20px;
+font-size:28px;
+color:#ff6b00;
+
+}
+
+.founder-image span{
+
+font-size:17px;
+color:#777;
+
+}
+
+.founder-content{
+
+flex:2;
+
+background:#fff;
+
+padding:40px;
+
+border-radius:20px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+position:relative;
+
+}
+
+.quote-icon{
+
+position:absolute;
+
+top:20px;
+
+right:30px;
+
+font-size:55px;
+
+color:#ff6b00;
+
+opacity:.15;
+
+}
+
+.founder-content h2{
+
+font-size:36px;
+
+color:#222;
+
+margin-bottom:5px;
+
+}
+
+.founder-content h4{
+
+font-size:18px;
+
+color:#777;
+
+margin-bottom:25px;
+
+}
+
+.founder-slogan{
+
+display:inline-block;
+
+padding:12px 25px;
+
+background:#ff6b00;
+
+color:#fff;
+
+font-size:20px;
+
+font-weight:700;
+
+border-radius:50px;
+
+margin-bottom:25px;
+
+}
+
+.founder-content p{
+
+font-size:18px;
+
+line-height:1.9;
+
+text-align:justify;
+
+margin-bottom:18px;
+
+color:#444;
+
+}
+
+.signature{
+
+margin-top:35px;
+
+border-top:2px solid #eee;
+
+padding-top:20px;
+
+}
+
+.signature h3{
+
+color:#ff6b00;
+
+font-size:28px;
+
+margin-bottom:5px;
+
+}
+
+.signature span{
+
+color:#666;
+
+font-size:16px;
+
+}
+
+/* ================= ABOUT ================= */
+
+
+.about{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:60px;
+
+align-items:center;
+
+}
+
+
+
+.about img{
+
+width:100%;
+
+border-radius:30px;
+
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.15);
+
+}
+
+
+
+
+.about p{
+
+font-size:18px;
+
+line-height:1.8;
+
+margin-top:20px;
+
+}
+
+
+
+
+/* ================= CARDS ================= */
+
+
+
+.cards{
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:25px;
+
+}
+
+
+
+.card{
+
+background:white;
+
+padding:35px;
+
+text-align:center;
+
+border-radius:25px;
+
+
+box-shadow:
+
+0 15px 35px rgba(0,0,0,.08);
+
+
+transition:.4s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-15px);
+
+}
+
+
+
+.card i{
+
+font-size:50px;
+
+color:#ff6b00;
+
+margin-bottom:20px;
+
+}
+
+
+
+/* ================= STATS ================= */
+
+
+
+.stats{
+
+background:
+
+linear-gradient(
+135deg,
+#ff6b00,
+#ff9800
+);
+
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:25px;
+
+}
+
+
+
+.stats .box{
+
+
+background:white;
+
+padding:40px;
+
+border-radius:25px;
+
+text-align:center;
+
+}
+
+
+
+.stats h2{
+
+font-size:55px;
+
+color:#ff6b00;
+
+}
+
+
+
+
+
+/* ================= GALLERY ================= */
+
+
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:25px;
+
+}
+
+
+
+.gallery img{
+
+width:100%;
+
+height:280px;
+
+object-fit:cover;
+
+border-radius:25px;
+
+transition:.4s;
+
+}
+
+
+
+.gallery img:hover{
+
+transform:scale(1.07);
+
+}
+
+
+
+
+/* ================= EVENTS ================= */
+
+
+
+#homeEvents{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:25px;
+
+}
+
+
+
+.event{
+
+background:white;
+
+padding:30px;
+
+border-radius:25px;
+
+
+box-shadow:
+
+0 15px 35px rgba(0,0,0,.1);
+
+}
+
+
+
+
+
+/* ================= CONTACT ================= */
+
+
+form{
+
+max-width:600px;
+
+margin:auto;
+
+}
+
+
+input,
+textarea{
+
+
+width:100%;
+
+padding:16px;
+
+margin:12px 0;
+
+border-radius:15px;
+
+border:1px solid #ddd;
+
+}
+
+
+
+textarea{
+
+height:150px;
+
+}
+
+
+
+button{
+
+background:#ff6b00;
+
+color:white;
+
+border:none;
+
+padding:15px 40px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+}
+
+
+
+
+/* ================= FOOTER ================= */
+
+
+
+footer{
+
+background:#171717;
+
+color:white;
+
+text-align:center;
+
+padding:50px;
+
+}
+
+
+
+footer i{
+
+font-size:32px;
+
+margin:15px;
+
+color:#ff6b00;
+
+}
+
+
+
+/* ================= MOBILE ================= */
+
+
+
+@media(max-width:900px){
+
+
+nav{
+
+display:none;
+
+}
+
+
+.about{
+
+grid-template-columns:1fr;
+
+}
+
+
+.cards{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+
+.stats{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+
+.gallery{
+
+grid-template-columns:1fr;
+
+}
+
+
+#homeEvents{
+
+grid-template-columns:1fr;
+
+}
+
+
+.hero h1{
+
+font-size:45px;
+
+}
+
+
+}
+
+
+.developer{
+
+margin-top:20px;
+
+font-size:14px;
+
+color:#ddd;
+
+letter-spacing:.5px;
+
+}
+
+
+.developer strong{
+
+color:#ff6b00;
+
+font-weight:700;
+
+}

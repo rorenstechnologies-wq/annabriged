@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Anna Brigade Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+
+body{
+
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:linear-gradient(135deg,#e7e3e0,#ffb347);
+
+}
+
+
+.container{
+
+width:420px;
+max-width:90%;
+
+background:white;
+
+padding:35px;
+
+border-radius:20px;
+
+box-shadow:0 20px 50px rgba(0,0,0,.2);
+
+}
+
+
+
+.logo{
+
+text-align:center;
+
+font-size:30px;
+
+font-weight:700;
+
+color:#ff6b00;
+
+margin-bottom:10px;
+
+}
+
+
+.subtitle{
+
+text-align:center;
+
+color:#666;
+
+margin-bottom:25px;
+
+}
+
+
+
+input{
+
+width:100%;
+
+padding:14px;
+
+margin:10px 0;
+
+border-radius:10px;
+
+border:1px solid #ddd;
+
+font-size:15px;
+
+outline:none;
+
+}
+
+
+input:focus{
+
+border-color:#ff6b00;
+
+}
+
+
+
+button{
+
+width:100%;
+
+padding:14px;
+
+margin-top:12px;
+
+border:none;
+
+border-radius:30px;
+
+cursor:pointer;
+
+font-size:16px;
+
+font-weight:600;
+
+}
+
+
+
+.signup{
+
+background:#ff6b00;
+
+color:white;
+
+}
+
+
+
+.login{
+
+background:#222;
+
+color:white;
+
+}
+
+
+
+.google{
+
+background:#4285f4;
+
+color:white;
+
+}
+
+
+
+.forgot{
+
+text-align:right;
+
+margin-top:10px;
+
+color:#ff6b00;
+
+cursor:pointer;
+
+font-size:14px;
+
+}
+
+
+
+.switch{
+
+text-align:center;
+
+margin-top:20px;
+
+color:#555;
+
+}
+
+
+.switch span{
+
+color:#ff6b00;
+
+cursor:pointer;
+
+font-weight:bold;
+
+}
+
+
+
+#message{
+
+text-align:center;
+
+margin-top:15px;
+
+font-size:14px;
+
+}
+
+
+
+.hide{
+
+display:none;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="logo">
+
+🟧 Anna Briged
+
+</div>
+
+
+<p class="subtitle">
+
+समाजसेवा प्रशासन Login
+
+</p>
+
+
+
+<!-- LOGIN FORM -->
+
+<div id="loginBox">
+
+
+<input 
+id="loginEmail"
+type="email"
+placeholder="Email">
+
+
+<input 
+id="loginPassword"
+type="password"
+placeholder="Password">
+
+
+<div class="forgot" onclick="forgotPassword()">
+
+Forgot Password?
+
+</div>
+
+
+
+<button class="login" onclick="loginUser()">
+
+Login
+
+</button>
+
+
+
+<button class="google" onclick="googleLogin()">
+
+<i class="fa-brands fa-google"></i>
+
+Google Login
+
+</button>
+
+
+
+<div class="switch">
+
+New User?
+
+<span onclick="showSignup()">
+
+Create Account
+
+</span>
+
+</div>
+
+
+</div>
+
+
+
+
+<!-- SIGNUP FORM -->
+
+
+<div id="signupBox" class="hide">
+
+
+<input 
+id="username"
+placeholder="Username">
+
+
+<input 
+id="signupEmail"
+type="email"
+placeholder="Email">
+
+
+<input 
+id="signupPassword"
+type="password"
+placeholder="Password">
+
+
+<button class="signup" onclick="signupUser()">
+
+Create Account
+
+</button>
+
+
+
+<div class="switch">
+
+Already have account?
+
+<span onclick="showLogin()">
+
+Login
+
+</span>
+
+</div>
+
+
+</div>
+
+
+
+<div id="message"></div>
+
+
+</div>
+
+
+
+
+<script type="module">
+
+
+import {auth} from "./firebase.js";
+
+
+import {
+
+createUserWithEmailAndPassword,
+
+signInWithEmailAndPassword,
+
+sendPasswordResetEmail,
+
+updateProfile,
+
+GoogleAuthProvider,
+
+signInWithPopup
+
+
+} from 
+"https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
+
+
+
+const message=document.getElementById("message");
+
+const loginBox=document.getElementById("loginBox");
+
+const signupBox=document.getElementById("signupBox");
+
+
+
+window.showSignup=function(){
+
+loginBox.classList.add("hide");
+
+signupBox.classList.remove("hide");
+
+message.innerHTML="";
+
+}
+
+
+
+window.showLogin=function(){
+
+signupBox.classList.add("hide");
+
+loginBox.classList.remove("hide");
+
+message.innerHTML="";
+
+}
+
+
+
+// SIGNUP
+
+
+window.signupUser=async function(){
+
+
+let username=document.getElementById("username").value;
+
+let email=document.getElementById("signupEmail").value;
+
+let password=document.getElementById("signupPassword").value;
+
+
+
+try{
+
+
+let userCredential=
+await createUserWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+
+
+await updateProfile(userCredential.user,{
+
+displayName:username
+
+});
+
+
+
+message.style.color="green";
+
+message.innerHTML=
+"Account Created Successfully";
+
+
+showLogin();
+
+
+}
+
+catch(error){
+
+message.style.color="red";
+
+message.innerHTML=error.message;
+
+}
+
+
+}
+
+
+
+// LOGIN
+
+
+window.loginUser=async function(){
+
+
+let email=
+document.getElementById("loginEmail").value;
+
+
+let password=
+document.getElementById("loginPassword").value;
+
+
+
+try{
+
+
+await signInWithEmailAndPassword(
+
+auth,
+
+email,
+
+password
+
+);
+
+
+
+message.style.color="green";
+
+message.innerHTML=
+"Login Successful";
+
+
+setTimeout(()=>{
+
+window.location="admin/dashboard.html";
+
+},1000);
+
+
+
+}
+
+catch(error){
+
+message.style.color="red";
+
+message.innerHTML=error.message;
+
+}
+
+
+}
+
+
+
+
+// FORGOT PASSWORD
+
+window.forgotPassword = async function(){
+
+    let email = document.getElementById("loginEmail").value.trim();
+
+    if(email === ""){
+
+        message.style.color="red";
+        message.innerHTML="Enter your email first";
+        return;
+
+    }
+
+
+    try{
+
+        await sendPasswordResetEmail(auth,email);
+
+        message.style.color="green";
+        message.innerHTML="Password reset link sent. Check your email";
+
+
+    }
+
+    catch(error){
+
+        console.log("ERROR:",error.code);
+
+
+        switch(error.code){
+
+            case "auth/invalid-email":
+                message.innerHTML="❌ Invalid email";
+                break;
+
+
+            case "auth/user-not-found":
+                message.innerHTML="❌ User not found";
+                break;
+
+
+            case "auth/too-many-requests":
+                message.innerHTML="❌ Too many attempts. Try later";
+                break;
+
+
+            default:
+                message.innerHTML=error.message;
+
+        }
+
+    }
+
+}
+
+// GOOGLE LOGIN
+
+
+window.googleLogin=async function(){
+
+
+try{
+
+
+const provider=
+new GoogleAuthProvider();
+
+
+await signInWithPopup(
+auth,
+provider
+);
+
+
+window.location="admin/dashboard.html";
+
+
+}
+
+catch(error){
+
+message.innerHTML=error.message;
+
+}
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
