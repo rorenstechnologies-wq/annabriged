@@ -3,8 +3,7 @@
 ================================ */
 
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap');
 
 *{
 margin:0;
@@ -89,15 +88,25 @@ border-radius:50%;
 }
 
 
-
 .logo h2{
 
-font-size:26px;
+font-family:"Tiro Devanagari Marathi",serif;
+
+font-size:40px;
+
+font-weight:700;
 
 color:#ff6b00;
 
-}
+letter-spacing:1px;
 
+line-height:1;
+
+text-shadow:2px 2px 8px rgba(0,0,0,.15);
+
+transition:.3s;
+
+}
 
 .logo p{
 
@@ -332,19 +341,14 @@ flex:1;
 text-align:center;
 
 }
-
 .founder-image img{
-
-width:320px;
-height:400px;
-object-fit:cover;
-
-border-radius:20px;
-
-box-shadow:0 20px 45px rgba(0,0,0,.15);
-
-border:8px solid #fff;
-
+    width:100%;
+    max-width:520px;      /* Increase image size */
+    height:650px;         /* Large portrait */
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+    border:6px solid #fff;
 }
 
 .founder-image h3{
@@ -578,233 +582,7 @@ margin-bottom:20px;
 
 }
 
-/* ================= MOBILE RESPONSIVE ================= */
 
-@media (max-width: 992px){
-
-header{
-    padding:12px 5%;
-}
-
-.logo img{
-    width:50px;
-    height:50px;
-}
-
-.logo h2{
-    font-size:20px;
-}
-
-.login{
-    padding:10px 20px;
-}
-
-.hero h1{
-    font-size:55px;
-}
-
-.hero p{
-    font-size:20px;
-}
-
-.cards{
-    grid-template-columns:repeat(2,1fr);
-}
-
-.stats{
-    grid-template-columns:repeat(2,1fr);
-}
-
-.gallery{
-    grid-template-columns:repeat(2,1fr);
-}
-
-#homeEvents{
-    grid-template-columns:1fr 1fr;
-}
-
-.about{
-    grid-template-columns:1fr;
-}
-
-.founder-container{
-    flex-direction:column;
-}
-
-.founder-content{
-    padding:30px;
-}
-
-}
-
-
-/* ================= PHONE ================= */
-
-@media (max-width:768px){
-
-header{
-    padding:10px 20px;
-}
-
-nav{
-    display:none;
-}
-
-.logo img{
-    width:45px;
-    height:45px;
-}
-
-.logo h2{
-    font-size:18px;
-}
-
-.logo p{
-    display:none;
-}
-
-.login{
-    padding:8px 18px;
-    font-size:14px;
-}
-
-.hero{
-    background-attachment:scroll;
-    height:auto;
-    min-height:100vh;
-    padding:120px 20px 80px;
-}
-
-.hero h3{
-    font-size:16px;
-    letter-spacing:2px;
-}
-
-.hero h1{
-    font-size:38px;
-}
-
-.hero p{
-    font-size:17px;
-    line-height:1.7;
-}
-
-.btn,
-.btn2{
-    display:block;
-    width:100%;
-    margin:12px 0;
-    text-align:center;
-}
-
-.title{
-    font-size:30px;
-}
-
-section{
-    padding:70px 20px;
-}
-
-.about{
-    grid-template-columns:1fr;
-}
-
-.about img{
-    margin-bottom:25px;
-}
-
-.founder-container{
-    flex-direction:column;
-    gap:30px;
-}
-
-.founder-image img{
-    width:230px;
-    height:290px;
-}
-
-.founder-content{
-    padding:25px;
-}
-
-.founder-content h2{
-    font-size:28px;
-}
-
-.founder-content p{
-    font-size:16px;
-}
-
-.founder-slogan{
-    font-size:16px;
-}
-
-.cards,
-.stats,
-.gallery,
-#homeEvents{
-    grid-template-columns:1fr;
-}
-
-.card,
-.stats .box,
-.event{
-    padding:25px;
-}
-
-.gallery img{
-    height:220px;
-}
-
-footer{
-    padding:35px 20px;
-}
-
-}
-
-
-/* ================= SMALL PHONE ================= */
-
-@media (max-width:480px){
-
-.hero h1{
-    font-size:30px;
-}
-
-.hero p{
-    font-size:15px;
-}
-
-.hero h3{
-    font-size:14px;
-}
-
-.title{
-    font-size:26px;
-}
-
-.founder-image img{
-    width:180px;
-    height:240px;
-}
-
-.founder-content h2{
-    font-size:24px;
-}
-
-.founder-content p{
-    font-size:15px;
-}
-
-.stats h2{
-    font-size:36px;
-}
-
-.card{
-    padding:20px;
-}
-
-}
 
 /* ================= STATS ================= */
 
@@ -1101,4 +879,4 @@ color:#ff6b00;
 
 font-weight:700;
 
-}
+} 
