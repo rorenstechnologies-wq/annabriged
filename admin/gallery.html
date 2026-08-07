@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Anna Brigade Gallery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+
+body{
+
+background:#f5f7fb;
+
+}
+
+
+header{
+
+background:#ff6b00;
+
+color:white;
+
+padding:20px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+
+header button{
+
+background:white;
+
+color:#ff6b00;
+
+border:none;
+
+padding:10px 20px;
+
+border-radius:25px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+}
+
+
+
+.container{
+
+padding:30px;
+
+}
+
+
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+}
+
+
+
+.image-card{
+
+background:white;
+
+border-radius:20px;
+
+overflow:hidden;
+
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+
+}
+
+
+
+.image-card img{
+
+width:100%;
+
+height:250px;
+
+object-fit:cover;
+
+}
+
+
+
+.image-card h3{
+
+padding:15px;
+
+text-align:center;
+
+color:#ff6b00;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h2>
+🟧 Anna Brigade Gallery
+</h2>
+
+
+<button onclick="backDashboard()">
+Dashboard
+</button>
+
+
+</header>
+
+
+
+<div class="container">
+
+
+<div class="gallery">
+
+
+
+<div class="image-card">
+
+<img src="images/amolsir1.jpeg">
+
+<h3>
+रक्तदान शिबिर
+</h3>
+
+</div>
+
+
+
+<div class="image-card">
+
+<img src="../assets/images/event2.jpg">
+
+<h3>
+समाजसेवा कार्यक्रम
+</h3>
+
+</div>
+
+
+
+<div class="image-card">
+
+<img src="../assets/images/tree.jpg">
+
+<h3>
+वृक्षारोपण अभियान
+</h3>
+
+</div>
+
+
+
+<div class="image-card">
+
+<img src="../images/amolsir1.jpeg">
+
+
+<h3>
+Anna Brigade Team
+</h3>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+function backDashboard(){
+
+window.location="dashboard.html";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

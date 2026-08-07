@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>अण्णा ब्रिगेड - कार्यक्रम</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+
+body{
+
+background:#f5f7fb;
+
+}
+
+
+
+header{
+
+background:#ff6b00;
+
+color:white;
+
+padding:20px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+
+
+header button{
+
+background:white;
+
+color:#ff6b00;
+
+border:none;
+
+padding:10px 25px;
+
+border-radius:25px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+}
+
+
+
+.container{
+
+padding:30px;
+
+}
+
+
+
+.box{
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+
+margin-bottom:30px;
+
+}
+
+
+
+input,textarea{
+
+width:100%;
+
+padding:14px;
+
+margin:10px 0;
+
+border:1px solid #ddd;
+
+border-radius:10px;
+
+font-size:15px;
+
+}
+
+
+
+textarea{
+
+height:120px;
+
+resize:none;
+
+}
+
+
+
+.add-btn{
+
+background:#ff6b00;
+
+color:white;
+
+border:none;
+
+padding:14px 35px;
+
+border-radius:30px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+}
+
+
+
+.event-card{
+
+background:white;
+
+padding:25px;
+
+margin-top:20px;
+
+border-radius:20px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+
+
+.event-card h3{
+
+color:#ff6b00;
+
+font-size:25px;
+
+}
+
+
+
+.event-card p{
+
+margin-top:8px;
+
+}
+
+
+
+.delete{
+
+background:red;
+
+color:white;
+
+border:none;
+
+padding:10px 20px;
+
+border-radius:20px;
+
+cursor:pointer;
+
+margin-top:15px;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<header>
+
+
+<h2>
+🟧 अण्णा ब्रिगेड कार्यक्रम
+</h2>
+
+
+
+<button onclick="dashboard()">
+
+डॅशबोर्ड
+
+</button>
+
+
+</header>
+
+
+
+
+<div class="container">
+
+
+
+<div class="box">
+
+
+<h2>
+नवीन कार्यक्रम जोडा
+</h2>
+
+
+
+<input 
+id="title"
+placeholder="कार्यक्रमाचे नाव">
+
+
+
+<input 
+id="date"
+type="date">
+
+
+
+<input 
+id="location"
+placeholder="कार्यक्रमाचे ठिकाण">
+
+
+
+<textarea 
+id="description"
+placeholder="कार्यक्रमाची माहिती">
+</textarea>
+
+
+
+<button class="add-btn" onclick="addEvent()">
+
+कार्यक्रम जोडा
+
+</button>
+
+
+</div>
+
+
+
+
+<h2>
+सर्व कार्यक्रम
+</h2>
+
+
+
+<div id="eventsList">
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<script type="module">
+
+
+import {
+
+auth,
+db
+
+} from "../firebase.js";
+
+
+
+import {
+
+onAuthStateChanged
+
+}
+
+from
+
+"https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
+
+
+
+import {
+
+collection,
+
+addDoc,
+
+getDocs,
+
+deleteDoc,
+
+doc,
+
+orderBy,
+
+query,
+
+serverTimestamp
+
+}
+
+from
+
+"https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
+
+
+
+
+// LOGIN तपासणी
+
+
+onAuthStateChanged(auth,(user)=>{
+
+
+if(!user){
+
+window.location="../login.html";
+
+}
+
+
+});
+
+
+
+
+
+
+// कार्यक्रम जोडा
+
+
+window.addEvent=async function(){
+
+
+
+let title=document.getElementById("title").value;
+
+let date=document.getElementById("date").value;
+
+let location=document.getElementById("location").value;
+
+let description=document.getElementById("description").value;
+
+
+
+
+if(title=="" || date==""){
+
+alert("कृपया कार्यक्रमाचे नाव आणि तारीख भरा");
+
+return;
+
+}
+
+
+
+try{
+
+
+await addDoc(
+
+collection(db,"events"),
+
+{
+
+
+title:title,
+
+date:date,
+
+location:location,
+
+description:description,
+
+createdAt:serverTimestamp()
+
+
+}
+
+);
+
+
+
+alert("कार्यक्रम यशस्वीरित्या जोडला");
+
+
+document.getElementById("title").value="";
+
+document.getElementById("date").value="";
+
+document.getElementById("location").value="";
+
+document.getElementById("description").value="";
+
+
+loadEvents();
+
+
+}
+
+catch(error){
+
+alert(error.message);
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+// कार्यक्रम दाखवा
+
+
+async function loadEvents(){
+
+
+
+let list=document.getElementById("eventsList");
+
+
+list.innerHTML="";
+
+
+
+const q=query(
+
+collection(db,"events"),
+
+orderBy("date","asc")
+
+);
+
+
+
+const snapshot=await getDocs(q);
+
+
+
+
+if(snapshot.empty){
+
+list.innerHTML="<h3>कोणताही कार्यक्रम उपलब्ध नाही</h3>";
+
+return;
+
+}
+
+
+
+snapshot.forEach((item)=>{
+
+
+let data=item.data();
+
+
+
+list.innerHTML +=`
+
+
+<div class="event-card">
+
+
+<h3>
+${data.title}
+</h3>
+
+
+<p>
+📅 तारीख : ${data.date}
+</p>
+
+
+<p>
+📍 ठिकाण : ${data.location}
+</p>
+
+
+<p>
+${data.description}
+</p>
+
+
+
+<button class="delete"
+onclick="deleteEvent('${item.id}')">
+
+Delete
+
+</button>
+
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+
+// कार्यक्रम Delete
+
+
+window.deleteEvent=async function(id){
+
+
+
+let confirmDelete=confirm(
+"हा कार्यक्रम Delete करायचा आहे का?"
+);
+
+
+
+if(confirmDelete){
+
+
+await deleteDoc(
+
+doc(db,"events",id)
+
+);
+
+
+
+alert("कार्यक्रम Delete केला");
+
+
+loadEvents();
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+// Dashboard
+
+
+window.dashboard=function(){
+
+
+window.location="dashboard.html";
+
+
+}
+
+
+
+
+
+
+loadEvents();
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

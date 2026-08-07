@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Anna Brigade Admin News</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+
+body{
+
+background:#f5f7fb;
+
+}
+
+
+header{
+
+background:#ff6b00;
+
+color:white;
+
+padding:20px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+
+
+button{
+
+border:none;
+
+padding:12px 25px;
+
+border-radius:25px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+}
+
+
+
+.back{
+
+background:white;
+
+color:#ff6b00;
+
+}
+
+
+
+.container{
+
+padding:30px;
+
+}
+
+
+
+.box{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+
+margin-bottom:30px;
+
+}
+
+
+
+input,textarea{
+
+width:100%;
+
+padding:14px;
+
+margin:10px 0;
+
+border:1px solid #ddd;
+
+border-radius:10px;
+
+}
+
+
+
+textarea{
+
+height:120px;
+
+}
+
+
+
+.add{
+
+background:#ff6b00;
+
+color:white;
+
+}
+
+
+
+.news-card{
+
+background:white;
+
+padding:20px;
+
+border-radius:20px;
+
+margin-bottom:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+
+}
+
+
+
+.news-card img{
+
+width:200px;
+
+height:120px;
+
+object-fit:cover;
+
+border-radius:10px;
+
+}
+
+
+
+.delete{
+
+background:red;
+
+color:white;
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<header>
+
+
+<h2>
+
+🟧 Anna Brigade News Admin
+
+</h2>
+
+
+<button class="back" onclick="backDashboard()">
+
+Dashboard
+
+</button>
+
+
+</header>
+
+
+
+
+<div class="container">
+
+
+
+<div class="box">
+
+
+<h2>
+नवीन बातमी Add करा
+</h2>
+
+
+<input id="title"
+placeholder="News Title">
+
+
+<input id="category"
+placeholder="Category">
+
+
+<input id="date"
+type="date">
+
+
+<input id="image"
+placeholder="Image Path (images/news1.jpg)">
+
+
+
+<textarea id="description"
+placeholder="News Description"></textarea>
+
+
+
+<button class="add" onclick="addNews()">
+
+Add News
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+<h2>
+सर्व बातम्या
+</h2>
+
+
+
+<div id="newsList">
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+<script type="module">
+
+
+import {db}
+
+from "../firebase.js";
+
+
+
+import {
+
+collection,
+
+addDoc,
+
+getDocs,
+
+deleteDoc,
+
+doc,
+
+orderBy,
+
+query
+
+}
+
+from
+
+"https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
+
+
+
+
+
+
+// ADD NEWS
+
+
+window.addNews=async function(){
+
+
+
+let title=
+document.getElementById("title").value;
+
+
+let category=
+document.getElementById("category").value;
+
+
+let date=
+document.getElementById("date").value;
+
+
+let image=
+document.getElementById("image").value;
+
+
+let description=
+document.getElementById("description").value;
+
+
+
+
+await addDoc(
+
+collection(db,"news"),
+
+{
+
+title,
+
+category,
+
+date,
+
+image,
+
+description,
+
+createdAt:new Date()
+
+}
+
+);
+
+
+
+alert("News Added");
+
+
+loadNews();
+
+
+}
+
+
+
+
+
+
+// LOAD NEWS
+
+
+async function loadNews(){
+
+
+let box=
+document.getElementById("newsList");
+
+
+box.innerHTML="";
+
+
+
+const snapshot=
+
+await getDocs(
+
+collection(db,"news")
+
+);
+
+
+
+snapshot.forEach(item=>{
+
+
+let data=item.data();
+
+
+
+box.innerHTML+=`
+
+
+<div class="news-card">
+
+
+<img src="${data.image}">
+
+
+<h2>${data.title}</h2>
+
+
+<p>
+${data.category}
+</p>
+
+
+<p>
+${data.date}
+</p>
+
+
+<p>
+${data.description}
+</p>
+
+
+<button class="delete"
+onclick="deleteNews('${item.id}')">
+
+Delete
+
+</button>
+
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+// DELETE
+
+
+window.deleteNews=async function(id){
+
+
+if(confirm("Delete News?")){
+
+
+await deleteDoc(
+
+doc(db,"news",id)
+
+);
+
+
+
+loadNews();
+
+
+}
+
+
+}
+
+
+
+
+
+
+window.backDashboard=function(){
+
+window.location="dashboard.html";
+
+}
+
+
+
+loadNews();
+
+
+
+</script>
+
+
+</body>
+
+</html>
