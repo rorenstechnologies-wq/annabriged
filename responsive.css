@@ -2211,21 +2211,6 @@ header{
     padding:15px 25px;
 }
 
-.logo h2{
-    font-size:28px;
-}
-
-nav{
-    gap:15px;
-}
-
-.hero h1{
-    font-size:60px;
-}
-
-.hero p{
-    font-size:20px;
-}
 
 .about{
     grid-template-columns:1fr;
