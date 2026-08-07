@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>अण्णा ब्रिगेड Admin Dashboard</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+
+
+body{
+
+background:#f5f7fb;
+
+display:flex;
+
+}
+
+
+
+/* SIDEBAR */
+
+
+.sidebar{
+
+width:260px;
+
+height:100vh;
+
+background:#ff6b00;
+
+color:white;
+
+padding:25px;
+
+position:fixed;
+
+}
+
+
+
+.logo{
+
+font-size:25px;
+
+font-weight:700;
+
+margin-bottom:40px;
+
+}
+
+
+
+.menu a{
+
+display:block;
+
+color:white;
+
+text-decoration:none;
+
+padding:15px;
+
+margin:10px 0;
+
+border-radius:12px;
+
+transition:.3s;
+
+}
+
+
+
+.menu a:hover{
+
+background:white;
+
+color:#ff6b00;
+
+}
+
+
+
+
+.logout{
+
+position:absolute;
+
+bottom:30px;
+
+width:210px;
+
+padding:12px;
+
+border:none;
+
+border-radius:30px;
+
+cursor:pointer;
+
+background:white;
+
+color:#ff6b00;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+/* MAIN */
+
+
+.main{
+
+margin-left:260px;
+
+padding:30px;
+
+width:100%;
+
+}
+
+
+
+
+.topbar{
+
+background:white;
+
+padding:20px;
+
+border-radius:20px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+
+
+.profile{
+
+color:#ff6b00;
+
+font-weight:bold;
+
+}
+
+
+
+
+/* CARDS */
+
+
+.cards{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+margin-top:30px;
+
+}
+
+
+
+.card{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+
+
+.card h2{
+
+font-size:40px;
+
+color:#ff6b00;
+
+}
+
+
+
+.card p{
+
+color:#666;
+
+}
+
+
+
+
+
+/* QUICK ACTION */
+
+
+.actions{
+
+margin-top:40px;
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(200px,1fr));
+
+gap:20px;
+
+}
+
+
+
+.action{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+
+.action:hover{
+
+transform:translateY(-8px);
+
+}
+
+
+
+.action h3{
+
+color:#ff6b00;
+
+font-size:22px;
+
+}
+
+
+
+
+@media(max-width:800px){
+
+
+.sidebar{
+
+position:relative;
+
+width:100%;
+
+height:auto;
+
+}
+
+
+body{
+
+display:block;
+
+}
+
+
+.main{
+
+margin-left:0;
+
+}
+
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+
+<!-- SIDEBAR -->
+
+
+<div class="sidebar">
+
+
+<div class="logo">
+
+🟧 अण्णा ब्रिगेड
+
+</div>
+
+
+
+<div class="menu">
+
+
+<a href="dashboard.html">
+
+🏠 डॅशबोर्ड
+
+</a>
+
+
+<a href="members.html">
+
+👥 सदस्य
+
+</a>
+
+
+<a href="events.html">
+
+📅 कार्यक्रम
+
+</a>
+
+
+<a href="news.html">
+
+📰 बातम्या
+
+</a>
+
+
+<a href="gallery.html">
+
+🖼️ गॅलरी
+
+</a>
+
+
+
+</div>
+
+
+
+
+<button class="logout" onclick="logout()">
+
+Logout
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+<!-- MAIN -->
+
+
+<div class="main">
+
+
+
+<div class="topbar">
+
+
+<h2>
+Admin Dashboard
+</h2>
+
+
+<div class="profile" id="adminName">
+
+Admin
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h2 id="memberCount">
+0
+</h2>
+
+<p>
+एकूण सदस्य
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2 id="eventCount">
+0
+</h2>
+
+<p>
+एकूण कार्यक्रम
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2 id="newsCount">
+0
+</h2>
+
+<p>
+एकूण बातम्या
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>
+24/7
+</h2>
+
+<p>
+सेवा
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<h2 style="margin-top:40px">
+
+Quick Actions
+
+</h2>
+
+
+
+<div class="actions">
+
+
+<div class="action"
+onclick="openPage('members.html')">
+
+<h3>
+👥 सदस्य व्यवस्थापन
+</h3>
+
+</div>
+
+
+
+<div class="action"
+onclick="openPage('events.html')">
+
+<h3>
+📅 कार्यक्रम व्यवस्थापन
+</h3>
+
+</div>
+
+
+
+
+<div class="action"
+onclick="openPage('news.html')">
+
+<h3>
+📰 बातम्या व्यवस्थापन
+</h3>
+
+</div>
+
+
+
+
+<div class="action"
+onclick="openPage('gallery.html')">
+
+<h3>
+🖼️ गॅलरी
+</h3>
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<script type="module">
+
+
+import {
+
+auth,
+db
+
+} from "../firebase.js";
+
+
+
+import {
+
+onAuthStateChanged,
+signOut
+
+}
+
+from
+
+"https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
+
+
+
+import {
+
+collection,
+getDocs
+
+}
+
+from
+
+"https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
+
+
+
+
+// AUTH CHECK
+
+
+onAuthStateChanged(auth,(user)=>{
+
+
+if(user){
+
+
+document.getElementById("adminName").innerHTML=
+
+user.displayName || user.email;
+
+
+}
+
+else{
+
+
+window.location="../login.html";
+
+
+}
+
+
+});
+
+
+
+
+
+// COUNTS
+
+
+async function loadCount(){
+
+
+
+let members=
+
+await getDocs(collection(db,"members"));
+
+document.getElementById("memberCount").innerHTML=
+
+members.size;
+
+
+
+let events=
+
+await getDocs(collection(db,"events"));
+
+document.getElementById("eventCount").innerHTML=
+
+events.size;
+
+
+
+let news=
+
+await getDocs(collection(db,"news"));
+
+document.getElementById("newsCount").innerHTML=
+
+news.size;
+
+
+
+}
+
+
+
+loadCount();
+
+
+
+
+
+// LOGOUT
+
+
+window.logout=async function(){
+
+
+await signOut(auth);
+
+
+window.location="../login.html";
+
+
+}
+
+
+
+
+window.openPage=function(page){
+
+
+window.location=page;
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
