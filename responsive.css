@@ -2271,23 +2271,7 @@ header{
 
 .logo p{
     font-size:12px;
-}
 
-nav{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:10px;
-    margin-top:15px;
-}
-
-nav a{
-    font-size:14px;
-}
-
-.login{
-    padding:8px 18px;
-}
 
 .hero{
     height:auto;
