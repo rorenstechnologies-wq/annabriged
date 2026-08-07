@@ -2207,37 +2207,36 @@
 
 @media (max-width:992px){
 
-header{
-    padding:15px 25px;
-}
+    header{
+        padding:15px 25px;
+    }
 
+    .about{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
 
-.about{
-    grid-template-columns:1fr;
-    gap:40px;
-}
+    .about img{
+        max-width:450px;
+        margin:auto;
+        display:block;
+    }
 
-.about img{
-    max-width:450px;
-    margin:auto;
-    display:block;
-}
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-.cards{
-    grid-template-columns:repeat(2,1fr);
-}
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-.stats{
-    grid-template-columns:repeat(2,1fr);
-}
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-.gallery{
-    grid-template-columns:repeat(2,1fr);
-}
-
-#homeEvents{
-    grid-template-columns:1fr;
-}
+    #homeEvents{
+        grid-template-columns:1fr;
+    }
 
 }
 
@@ -2246,184 +2245,191 @@ header{
    MOBILE (768px)
 =========================== */
 
-/* ===========================
-   MOBILE MENU
-=========================== */
-
 @media (max-width:768px){
 
-header{
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    padding:15px;
-}
+    header{
+        position:relative;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        padding:15px;
+    }
 
-.logo{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    margin-bottom:15px;
-}
+    .logo{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        margin-bottom:15px;
+    }
 
-nav{
-    display:flex !important;
-    flex-wrap:wrap;
-    justify-content:center;
-    align-items:center;
-    gap:10px;
-    width:100%;
-}
+    .logo img{
+        width:55px;
+        height:55px;
+    }
 
-nav a{
-    display:block;
-    padding:10px 15px;
-    font-size:15px;
-    color:#333;
-    text-decoration:none;
-    border-radius:8px;
-}
+    .logo h2{
+        font-size:24px;
+    }
 
-nav a:hover{
-    background:#ff6b00;
-    color:#fff;
-}
+    .logo p{
+        font-size:12px;
+    }
 
-.login{
-    background:#ff6b00;
-    color:#fff !important;
-    border-radius:25px;
-    padding:10px 20px;
-}
+    nav{
+        display:flex !important;
+        flex-wrap:wrap;
+        justify-content:center;
+        align-items:center;
+        gap:10px;
+        width:100%;
+        margin-top:15px;
+    }
 
-};
+    nav a{
+        display:block;
+        padding:10px 15px;
+        font-size:15px;
+        text-decoration:none;
+        color:#333;
+        border-radius:8px;
+    }
 
+    nav a:hover{
+        background:#ff6b00;
+        color:#fff;
+    }
 
-.hero{
-    height:auto;
-    min-height:100vh;
-    padding:80px 20px;
-    background-attachment:scroll;
-}
+    .login{
+        background:#ff6b00;
+        color:#fff !important;
+        padding:10px 20px;
+        border-radius:25px;
+    }
 
-.hero h3{
-    font-size:16px;
-    letter-spacing:2px;
-}
+    .hero{
+        height:auto;
+        min-height:100vh;
+        padding:80px 20px;
+        background-attachment:scroll;
+    }
 
-.hero h1{
-    font-size:42px;
-}
+    .hero h3{
+        font-size:16px;
+        letter-spacing:2px;
+    }
 
-.hero p{
-    font-size:17px;
-    line-height:1.6;
-}
+    .hero h1{
+        font-size:42px;
+    }
 
-.btn,
-.btn2{
-    display:block;
-    width:100%;
-    max-width:280px;
-    margin:10px auto;
-    text-align:center;
-}
+    .hero p{
+        font-size:17px;
+        line-height:1.6;
+    }
 
-section{
-    padding:60px 20px;
-}
+    .btn,
+    .btn2{
+        display:block;
+        width:100%;
+        max-width:280px;
+        margin:10px auto;
+        text-align:center;
+    }
 
-.title{
-    font-size:30px;
-}
+    section{
+        padding:60px 20px;
+    }
 
-.about{
-    grid-template-columns:1fr;
-    text-align:center;
-}
+    .title{
+        font-size:30px;
+    }
 
-.about img{
-    width:100%;
-    max-width:320px;
-    margin:auto;
-}
+    .about{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
 
-.about h2{
-    font-size:28px;
-}
+    .about img{
+        width:100%;
+        max-width:320px;
+        margin:auto;
+    }
 
-.about p{
-    font-size:16px;
-    line-height:1.8;
-}
+    .about h2{
+        font-size:28px;
+    }
 
-.cards{
-    grid-template-columns:1fr;
-}
+    .about p{
+        font-size:16px;
+        line-height:1.8;
+    }
 
-.card{
-    padding:25px;
-}
+    .cards{
+        grid-template-columns:1fr;
+    }
 
-.stats{
-    grid-template-columns:1fr;
-}
+    .card{
+        padding:25px;
+    }
 
-.stats .box{
-    padding:25px;
-}
+    .stats{
+        grid-template-columns:1fr;
+    }
 
-.stats h2{
-    font-size:38px;
-}
+    .stats .box{
+        padding:25px;
+    }
 
-.gallery{
-    grid-template-columns:1fr;
-}
+    .stats h2{
+        font-size:38px;
+    }
 
-.gallery img{
-    height:220px;
-}
+    .gallery{
+        grid-template-columns:1fr;
+    }
 
-#homeEvents{
-    grid-template-columns:1fr;
-}
+    .gallery img{
+        height:220px;
+    }
 
-.event{
-    padding:20px;
-}
+    #homeEvents{
+        grid-template-columns:1fr;
+    }
 
-form{
-    width:100%;
-}
+    .event{
+        padding:20px;
+    }
 
-input,
-textarea{
-    font-size:16px;
-}
+    form{
+        width:100%;
+    }
 
-button{
-    width:100%;
-}
+    input,
+    textarea{
+        font-size:16px;
+    }
 
-footer{
-    padding:40px 20px;
-}
+    button{
+        width:100%;
+    }
 
-footer h2{
-    font-size:28px;
-}
+    footer{
+        padding:40px 20px;
+    }
 
-footer i{
-    font-size:24px;
-    margin:10px;
-}
+    footer h2{
+        font-size:28px;
+    }
 
-.developer{
-    font-size:13px;
-}
+    footer i{
+        font-size:24px;
+        margin:10px;
+    }
+
+    .developer{
+        font-size:13px;
+    }
 
 }
 
@@ -2434,40 +2440,40 @@ footer i{
 
 @media (max-width:480px){
 
-.logo h2{
-    font-size:20px;
-}
+    .logo h2{
+        font-size:20px;
+    }
 
-.hero h1{
-    font-size:34px;
-}
+    .hero h1{
+        font-size:34px;
+    }
 
-.hero p{
-    font-size:15px;
-}
+    .hero p{
+        font-size:15px;
+    }
 
-.title{
-    font-size:26px;
-}
+    .title{
+        font-size:26px;
+    }
 
-.about h2{
-    font-size:24px;
-}
+    .about h2{
+        font-size:24px;
+    }
 
-.about p{
-    font-size:15px;
-}
+    .about p{
+        font-size:15px;
+    }
 
-.card h3{
-    font-size:20px;
-}
+    .card h3{
+        font-size:20px;
+    }
 
-.stats h2{
-    font-size:30px;
-}
+    .stats h2{
+        font-size:30px;
+    }
 
-.gallery img{
-    height:180px;
-}
+    .gallery img{
+        height:180px;
+    }
 
 }
