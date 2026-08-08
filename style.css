@@ -153,59 +153,58 @@ color:white!important;
 
 }
 
+/* ================= HERO FOUNDER ================= */
+
+.hero-founder {
+    font-size: 26px;
+    font-weight: 600;
+    color: #FFD54F;
+    margin: 15px 0 20px;
+    text-shadow: 0 5px 20px rgba(0,0,0,.5);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .hero-founder {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 12px 0 15px;
+    }
+
+}
 
 
 
-/* ================= HERO ================= */
 /* ================= PREMIUM HERO ================= */
-/* ================= PREMIUM HERO ================= */
 
-.hero {
-    position: relative;
-    height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-    overflow: hidden;
+.hero{
+    position:relative;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(10, 20, 45, 0.30),
-            rgba(18, 35, 65, 0.30),
-            rgba(8, 15, 35, 0.30)
-        ),
-        url("images/amolsir7.png");
+    linear-gradient(
+        135deg,
+        rgba(10,20,45,.80),
+        rgba(18,35,65,.70),
+        rgba(8,15,35,.82)
+    ),
+    url("images/banner.jpg");
 
-    /* SHOW IMAGE ACROSS THE COMPLETE HERO */
-    background-size: 100% 100%;
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
 
-    background-position: center;
-    background-repeat: no-repeat;
-
-    color: #fff;
+    color:#fff;
 }
 
-
-/* REMOVE THE ANIMATED LIGHT OVER THE IMAGE */
-
-.hero::before {
-    display: none;
-}
-
-
-/* HERO CONTENT */
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-
-    max-width: 900px;
-    padding: 20px;
-}
 /* Elegant animated light */
 .hero::before{
     content:"";
@@ -250,7 +249,7 @@ color:white!important;
 }
 
 .hero h1{
-    font-size:85px;
+    font-size:110px;
     font-weight:700;
     line-height:1.1;
     text-shadow:0 12px 35px rgba(0,0,0,.55);
@@ -306,6 +305,22 @@ background:#fff;
 color:#111;
 
 }
+@media (max-width: 900px){
+
+    .hero h1{
+        font-size:55px;
+        line-height:1.2;
+    }
+
+}
+
+@media (max-width: 500px){
+
+    .hero h1{
+        font-size:42px;
+    }
+
+}
 /* ================= SECTION ================= */
 
 
@@ -332,142 +347,149 @@ color:#ff6b00;
 
 /* Founder */
 
-#founder{
+/* ================= FOUNDER ================= */
 
-padding:90px 8%;
-background:#fdfdfd;
+.founder-section {
+    width: 90%;
+    max-width: 1250px;
+    margin: 80px auto;
 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+    gap: 70px;
 }
 
-.founder-container{
 
-display:flex;
-align-items:center;
-gap:60px;
-flex-wrap:wrap;
+/* ================= LEFT = IMAGE ================= */
 
+.founder-photo {
+    order: 1;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.founder-image{
+.founder-photo img {
+    display: block;
 
-flex:1;
-text-align:center;
+    width: 100%;
+    max-width: 520px;
 
+    height: auto;
+
+    /* IMPORTANT: don't crop image */
+    object-fit: contain;
+    object-position: center;
+
+    border-radius: 25px;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,.18);
 }
 
-.founder-image img{
 
-width:320px;
-height:400px;
-object-fit:cover;
+/* ================= RIGHT = TEXT ================= */
 
-border-radius:20px;
+.founder-text {
+    order: 2;
 
-box-shadow:0 20px 45px rgba(0,0,0,.15);
-
-border:8px solid #fff;
-
+    text-align: left;
 }
 
-.founder-image h3{
-
-margin-top:20px;
-font-size:28px;
-color:#ff6b00;
-
+.founder-text h2 {
+    font-size: 22px;
+    color: #ff6b00;
+    margin-bottom: 15px;
 }
 
-.founder-image span{
-
-font-size:17px;
-color:#777;
-
+.founder-text h3 {
+    font-size: 36px;
+    line-height: 1.35;
+    color: #222;
+    margin-bottom: 25px;
 }
 
-.founder-content{
-
-flex:2;
-
-background:#fff;
-
-padding:40px;
-
-border-radius:20px;
-
-box-shadow:0 15px 40px rgba(0,0,0,.08);
-
-position:relative;
-
+.founder-text p {
+    font-size: 18px;
+    line-height: 1.9;
+    color: #666;
+    margin-bottom: 30px;
 }
 
-.quote-icon{
 
-position:absolute;
+/* ================= BUTTON ================= */
 
-top:20px;
+.founder-btn {
+    display: inline-block;
 
-right:30px;
+    padding: 15px 32px;
 
-font-size:55px;
+    background: #ff6b00;
+    color: #fff;
 
-color:#ff6b00;
+    border-radius: 30px;
 
-opacity:.15;
+    text-decoration: none;
+    font-weight: 600;
 
+    transition: .3s;
 }
 
-.founder-content h2{
-
-font-size:36px;
-
-color:#222;
-
-margin-bottom:5px;
-
+.founder-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(255,107,0,.30);
 }
 
-.founder-content h4{
 
-font-size:18px;
+/* ================= MOBILE ================= */
 
-color:#777;
+@media (max-width: 900px) {
 
-margin-bottom:25px;
+    .founder-section {
+        width: 92%;
 
-}
+        display: flex;
+        flex-direction: column;
 
-.founder-slogan{
+        gap: 40px;
+        margin: 50px auto;
+    }
 
-display:inline-block;
+    /* IMAGE FIRST */
+    .founder-photo {
+        order: 1;
+        width: 100%;
+    }
 
-padding:12px 25px;
+    .founder-photo img {
+        width: 100%;
+        max-width: 520px;
 
-background:#ff6b00;
+        height: auto;
 
-color:#fff;
+        object-fit: contain;
+    }
 
-font-size:20px;
+    /* TEXT SECOND */
+    .founder-text {
+        order: 2;
 
-font-weight:700;
+        width: 100%;
+        text-align: center;
+    }
 
-border-radius:50px;
+    .founder-text h3 {
+        font-size: 28px;
+    }
 
-margin-bottom:25px;
-
-}
-
-.founder-content p{
-
-font-size:18px;
-
-line-height:1.9;
-
-text-align:justify;
-
-margin-bottom:18px;
-
-color:#444;
-
+    .founder-text p {
+        font-size: 16px;
+        text-align: left;
+    }
 }
 
 .signature{
@@ -896,5 +918,348 @@ letter-spacing:.5px;
 color:#ff6b00;
 
 font-weight:700;
+
+}
+
+/* =====================================================
+   PROFESSIONAL ORGANIZATION ANIMATIONS
+===================================================== */
+
+/* ---------- HERO ANIMATION ---------- */
+
+.hero-content h3 {
+    animation: fadeDown 1s ease both;
+}
+
+.hero-content h1 {
+    animation: fadeUp 1.1s ease .15s both;
+}
+
+.hero-content p {
+    animation: fadeUp 1.1s ease .3s both;
+}
+
+.hero-content .btn,
+.hero-content .btn2 {
+    animation: fadeUp 1.1s ease .45s both;
+}
+
+
+/* ---------- FOUNDER SECTION ---------- */
+
+.founder-photo {
+    animation: founderImageReveal 1.2s ease both;
+}
+
+.founder-text {
+    animation: founderTextReveal 1.2s ease .2s both;
+}
+
+
+/* ---------- CARD ANIMATION ---------- */
+
+.card {
+    animation: cardReveal .8s ease both;
+}
+
+.card:nth-child(1) {
+    animation-delay: .1s;
+}
+
+.card:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.card:nth-child(3) {
+    animation-delay: .3s;
+}
+
+.card:nth-child(4) {
+    animation-delay: .4s;
+}
+
+
+/* ---------- GALLERY ---------- */
+
+.gallery img {
+    animation: imageReveal .8s ease both;
+}
+
+
+/* ---------- EVENTS ---------- */
+
+.event {
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+.event:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 45px rgba(0,0,0,.15);
+}
+
+
+/* ---------- FOUNDER IMAGE HOVER ---------- */
+
+.founder-photo img {
+    transition:
+        transform .5s ease,
+        box-shadow .5s ease;
+}
+
+.founder-photo img:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 30px 65px rgba(0,0,0,.22);
+}
+
+
+/* ---------- FOUNDER BUTTON ---------- */
+
+.founder-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.founder-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.35),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+    transition: .6s;
+}
+
+.founder-btn:hover::after {
+    left: 130%;
+}
+
+
+/* ---------- NORMAL BUTTON SHINE ---------- */
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 60%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.35),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+    transition: .6s;
+}
+
+.btn:hover::after {
+    left: 130%;
+}
+
+
+/* ---------- KEYFRAMES ---------- */
+
+@keyframes fadeDown {
+
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes founderImageReveal {
+
+    from {
+        opacity: 0;
+        transform: translateX(-60px) scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+
+}
+
+
+@keyframes founderTextReveal {
+
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+@keyframes cardReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes imageReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   HERO LIGHT ANIMATION
+===================================================== */
+
+.hero::before {
+
+    animation:
+        heroLight 14s ease-in-out infinite alternate,
+        heroGlow 6s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes heroGlow {
+
+    0% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+
+/* =====================================================
+   PROFESSIONAL MOBILE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .hero-content h1 {
+        font-size: 55px;
+    }
+
+    .hero-content {
+        padding: 20px;
+    }
+
+    .founder-photo img {
+        transform: none;
+    }
+
+    .founder-photo img:hover {
+        transform: scale(1.01);
+    }
+
+}
+
+
+/* SMALL MOBILE */
+
+@media (max-width: 500px) {
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .hero-content h3 {
+        font-size: 17px;
+        letter-spacing: 2px;
+    }
+
+    .hero-content p {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    .founder-text h3 {
+        font-size: 26px;
+    }
+
+}
+
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+
+    }
 
 }
